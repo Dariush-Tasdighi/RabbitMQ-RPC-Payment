@@ -44,7 +44,7 @@ namespace Application
 					CreateTransaction();
 
 				//var jsonResult =
-				//	await client.CallAsync(message: jsonMessage);
+				//	await client.CallAsync(value: jsonMessage);
 
 				var jsonResult =
 					await serviceProvider.GetService<RpcClient>().CallAsync(value: transaction);
@@ -67,7 +67,7 @@ namespace Application
 			var transaction =
 				new Dtos.Transaction();
 
-			transaction.Bill.Amount = 100;
+			transaction.Bill.Amount = 1000;
 			transaction.Bill.Identity = "12345";
 			transaction.Bill.PaymentIdentity = "54321";
 
@@ -110,7 +110,6 @@ namespace Application
 			services.Configure<Settings>(configuration.GetSection(Settings.KeyName));
 
 			services.AddSingleton<RpcClient>();
-			//services.AddTransient<RpcClient>();
 		}
 	}
 }
