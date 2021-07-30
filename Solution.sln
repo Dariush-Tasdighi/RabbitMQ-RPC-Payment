@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consumer - Receiver - Server", "Consumer - Receiver - Server", "{FF4DF0B3-8615-465D-BDAC-F6549867065E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Producer - Sender - Client", "Producer - Sender - Client", "{0625DCEF-AB5E-4CDD-97BA-B1FABF823621}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Transfer Objects", "Data Transfer Objects", "{8903F50E-66D4-455D-916A-D5E090F3C25C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dtos", "Dtos\Dtos.csproj", "{B1DF927D-7C27-4CB3-9EF4-7135C074E6FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{2A0DE2BB-0F66-429C-969F-6EA931ED6261}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dtx.Messaging", "Dtx.Messaging\Dtx.Messaging.csproj", "{F1845A15-883F-4611-884F-3501C047B811}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Server\Application.csproj", "{D282AD63-1928-46CC-A86F-DD09F1B94F25}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Client\Application.csproj", "{EADD7672-B950-4904-9F00-E9691CB2C943}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1DF927D-7C27-4CB3-9EF4-7135C074E6FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1DF927D-7C27-4CB3-9EF4-7135C074E6FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1DF927D-7C27-4CB3-9EF4-7135C074E6FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1DF927D-7C27-4CB3-9EF4-7135C074E6FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1845A15-883F-4611-884F-3501C047B811}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1845A15-883F-4611-884F-3501C047B811}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1845A15-883F-4611-884F-3501C047B811}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1845A15-883F-4611-884F-3501C047B811}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D282AD63-1928-46CC-A86F-DD09F1B94F25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D282AD63-1928-46CC-A86F-DD09F1B94F25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D282AD63-1928-46CC-A86F-DD09F1B94F25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D282AD63-1928-46CC-A86F-DD09F1B94F25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EADD7672-B950-4904-9F00-E9691CB2C943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EADD7672-B950-4904-9F00-E9691CB2C943}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EADD7672-B950-4904-9F00-E9691CB2C943}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EADD7672-B950-4904-9F00-E9691CB2C943}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B1DF927D-7C27-4CB3-9EF4-7135C074E6FB} = {8903F50E-66D4-455D-916A-D5E090F3C25C}
+		{F1845A15-883F-4611-884F-3501C047B811} = {2A0DE2BB-0F66-429C-969F-6EA931ED6261}
+		{D282AD63-1928-46CC-A86F-DD09F1B94F25} = {FF4DF0B3-8615-465D-BDAC-F6549867065E}
+		{EADD7672-B950-4904-9F00-E9691CB2C943} = {0625DCEF-AB5E-4CDD-97BA-B1FABF823621}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8C86A8A-2343-4709-8ACE-217072A627E4}
+	EndGlobalSection
+EndGlobal
