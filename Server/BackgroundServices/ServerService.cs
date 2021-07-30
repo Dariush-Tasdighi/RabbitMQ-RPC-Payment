@@ -48,7 +48,7 @@ namespace Application
 					{
 						// **************************************************
 						string json =
-							Dtx.Messaging.Utility.GetJsonFromByteArray(eventArgs.Body);
+							Dtx.Messaging.Utility.ConvertByteArrayToJson(eventArgs.Body);
 
 						transaction =
 							Dtx.Messaging.Utility.ConvertJsonToObject<Dtos.Transaction>(json: json);

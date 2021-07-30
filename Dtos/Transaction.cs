@@ -1,10 +1,10 @@
 ﻿namespace Dtos
 {
-	public class Transaction : object
+	public class Transaction : object, Dtx.Messaging.Rpc.IMessage
 	{
 		public Transaction() : base()
 		{
-			Timestamp =
+			InsertDateTime =
 				System.DateTime.UtcNow;
 
 			Bill = new Bill();
@@ -37,7 +37,11 @@
 
 
 		// **********
-		public System.DateTime Timestamp { get; set; }
+		public System.DateTime InsertDateTime { get; set; }
+		// **********
+
+		// **********
+		public System.DateTime? UpdateDateTime { get; set; }
 		// **********
 
 		// **********
@@ -45,6 +49,28 @@
 		/// کد پیگیری - کدی که پی اس پی تولید می‌کند
 		/// </summary>
 		public string ConsistencyIdentity { get; set; }
+		// **********
+
+
+
+		// **********
+		public string ClientIP { get; set; }
+		// **********
+
+		// **********
+		public string ServerIP { get; set; }
+		// **********
+
+		// **********
+		public string QueueName { get; set; }
+		// **********
+
+		// **********
+		public string CorrelationId { get; set; }
+		// **********
+
+		// **********
+		public string ReplyQueueName { get; set; }
 		// **********
 	}
 }

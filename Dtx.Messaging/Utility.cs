@@ -33,12 +33,36 @@
 			return result;
 		}
 
-		public static string GetJsonFromByteArray(System.ReadOnlyMemory<byte> body)
+		public static string ConvertObjectToJson(object value)
+		{
+			string result =
+				System.Text.Json.JsonSerializer.Serialize(value: value);
+
+			return result;
+		}
+
+		public static byte[] ConvertJsonToByteArray(string json)
+		{
+			var result =
+				System.Text.Encoding.UTF8.GetBytes(s: json);
+
+			return result;
+		}
+
+		public static string ConvertByteArrayToJson(byte[] body)
+		{
+			string result =
+				System.Text.Encoding.UTF8.GetString(bytes: body);
+
+			return result;
+		}
+
+		public static string ConvertByteArrayToJson(System.ReadOnlyMemory<byte> body)
 		{
 			byte[] byteArray = body.ToArray();
 
 			string result =
-				System.Text.Encoding.UTF8.GetString(bytes: byteArray);
+				ConvertByteArrayToJson(body: byteArray);
 
 			return result;
 		}

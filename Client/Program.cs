@@ -25,29 +25,29 @@ namespace Application
 			//	new RpcClient();
 			// **************************************************
 
-			int sleepMilliseconds = 100;
-
 			System.Console.WriteLine("[x] Sending RPC");
+
+			int sleepMilliseconds = 100;
 
 			while (1 == 1)
 			{
+				System.Threading.Thread.Sleep
+					(millisecondsTimeout: sleepMilliseconds);
+
 				var stopWatch =
 					new System.Diagnostics.Stopwatch();
 
 				stopWatch.Start();
 
-				System.Threading.Thread.Sleep
-					(millisecondsTimeout: sleepMilliseconds);
-
 				// **************************************************
-				string jsonMessage =
-					CreateJsonMessage();
+				var transaction =
+					CreateTransaction();
 
 				//var jsonResult =
 				//	await client.CallAsync(message: jsonMessage);
 
 				var jsonResult =
-					await serviceProvider.GetService<RpcClient>().CallAsync(message: jsonMessage);
+					await serviceProvider.GetService<RpcClient>().CallAsync(value: transaction);
 
 				var transactionResult =
 					Dtx.Messaging.Utility.ConvertJsonToObject<Dtos.Transaction>(json: jsonResult);
@@ -55,35 +55,11 @@ namespace Application
 
 				stopWatch.Stop();
 
-				var extraTime =
-					new System.TimeSpan
-					(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: sleepMilliseconds);
-
-				var elapsedTime =
-					stopWatch.Elapsed - extraTime;
-
-				string elapsedSecondsString =
-					elapsedTime.Seconds.ToString().PadLeft(totalWidth: 2, paddingChar: '_');
-
-				string elapsedMillisecondsString =
-					elapsedTime.Milliseconds.ToString().PadLeft(totalWidth: 4, paddingChar: '_');
-
 				string message =
-					$"{ transactionResult.Result.Code } - Seconds: { elapsedSecondsString } - Milliseconds: { elapsedMillisecondsString }";
+					$"{ transactionResult.Result.Code } - Elapsed: {stopWatch.Elapsed:ss\\:fff}";
 
 				System.Console.WriteLine(message);
 			}
-		}
-
-		private static string CreateJsonMessage()
-		{
-			var transaction =
-				CreateTransaction();
-
-			string jsonMessage =
-				System.Text.Json.JsonSerializer.Serialize(transaction);
-
-			return jsonMessage;
 		}
 
 		private static Dtos.Transaction CreateTransaction()

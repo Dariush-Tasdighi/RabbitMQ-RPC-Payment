@@ -93,8 +93,8 @@ namespace Dtx.Messaging.Rpc
 			<string, System.Threading.Tasks.TaskCompletionSource<string>> CallbackMapper
 		{ get; }
 
-		public virtual System.Threading.Tasks.Task<string> CallAsync
-			(string message, System.Threading.CancellationToken cancellationToken = default)
+		public virtual System.Threading.Tasks.Task<string> CallAsync<T>
+			(T value, System.Threading.CancellationToken cancellationToken = default) where T : IMessage
 		{
 			// **************************************************
 			var correlationId =
@@ -115,11 +115,18 @@ namespace Dtx.Messaging.Rpc
 
 			properties.ReplyTo = ReplyQueueName;
 			properties.CorrelationId = correlationId;
+
+			value.CorrelationId = correlationId;
+			value.QueueName = Settings.QueueName;
+			value.ReplyQueueName = ReplyQueueName;
 			// **************************************************
 
 			// **************************************************
+			var messageJson =
+				Utility.ConvertObjectToJson(value: value);
+
 			var messageBytes =
-				System.Text.Encoding.UTF8.GetBytes(message);
+				Utility.ConvertJsonToByteArray(json: messageJson);
 			// **************************************************
 
 			// **************************************************
